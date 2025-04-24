@@ -8,8 +8,26 @@
 // Output: 23 ----> [5, 4, -1, 7, 8]
 
 
+
+
+const maxSubarray = (nums)=> {
+    let max = nums[0];
+    for(let i=0; i<nums.length; i++){
+        let current = 0;
+        for(let j=i; j<nums.length; j++){
+            current = current + nums[j];
+            if(current > max){
+                max = current;
+            }
+        }
+    }
+    return max;
+}
+console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+
 // kadane's Algorithm
-const maxSubarray = (nums) => {
+const maxSubarrayKadane = (nums) => {
     let sum = 0;
     let max = nums[0];
 
@@ -25,4 +43,4 @@ const maxSubarray = (nums) => {
     }
     return max;
 };
-console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+console.log(maxSubarrayKadane([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
